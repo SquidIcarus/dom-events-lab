@@ -15,7 +15,9 @@ let operatorSelect = null;  // var to store selected operator
 
 const display = document.querySelector('.display'); // stores div.display element in 'display'
 display.innerText = '0';                            // display shows '0' until a number button is pressed
+const equalsButton = document.querySelector('.equals');
 // console.dir(display);
+console.dir(equalsButton);
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -26,6 +28,8 @@ numButtons.forEach(numBtn => {                          // listens for click eve
 operButtons.forEach(operBtn => {                         // listens for click event on 'operButtons'
     operBtn.addEventListener('click', handleOperClick);  // with callback function 'handleOperClick()'
 });
+
+equalsButton.addEventListener('click', handleEqClick);   // listens for click event on 'equalsButton'
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -45,7 +49,6 @@ function handleNumClick(event) {                       // callback function for 
         const isNum2 = typeof (secondNum);
         console.log(isNum2);
     }
-    // display.innerText = parseInt(event.target.innerText); // inserts the converted number into the div.display element, shows on calculator screen
 }
 
 function handleOperClick(event) {                      // callback function for 'operButtons' eventListener
@@ -60,4 +63,14 @@ function handleOperClick(event) {                      // callback function for 
         operatorSelect = operator;
 
     }
+}
+
+function handleEqClick(event) {                         // callback function for 'equalsButton' eventListener
+//    console.log(event.target.innerText);
+if (operatorSelect === '+') {                            // if operatorSelect is '+'
+    const sum = firstNum + secondNum;                    // store result of firstNum + secondNum in 'sum'
+    console.log(`${firstNum} + ${secondNum} = ${sum}`)   // log check, works
+   display.innerText = sum;                              // display the result of 'sum'
+}
+   
 }
