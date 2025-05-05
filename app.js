@@ -36,7 +36,7 @@ equalsButton.addEventListener('click', handleEqClick);   // listens for click ev
 function handleNumClick(event) {                       // callback function for 'numButtons' eventListener
     const number = parseInt(event.target.innerText);        // stores innerText converted to number of the .button.number element into 'number'
     // const numberTwo = parseInt(event.target.innerText);
-    if (operatorSelect === null) {                      // if no operator was selected
+    if (operatorSelect === null) {                         // if no operator was selected
         firstNum = number;                                 // number clicked is stored in var 'firstNum'
         display.innerText = firstNum;
         console.log(`first number: ${firstNum}`);           // logs firstNum
@@ -70,16 +70,28 @@ function handleEqClick() {                         // callback function for 'equ
     if (operatorSelect === '+') {                            // if operatorSelect is '+'
         const sum = firstNum + secondNum;                    // store result of firstNum + secondNum in 'sum'
         console.log(`${firstNum} + ${secondNum} = ${sum}`)   // log check, works
-        display.innerText = sum;                              // display the result of 'sum'
+        display.innerText = sum;                             // display the result of 'sum'
+        firstNum = null;                                    // all vars reset back to null after displaying sum
+        secondNum = null;
+        operatorSelect = null;                           
     } if (operatorSelect === '-') {                         
         const diff = firstNum - secondNum;                    // same concept with difference
         display.innerText = diff;
+        firstNum = null;                               
+        secondNum = null;
+        operatorSelect = null;
     } if (operatorSelect === '*') {
         const  prod = firstNum * secondNum;                     // same with product
         display.innerText = prod;
+        firstNum = null;                               
+        secondNum = null;
+        operatorSelect = null;
     } if (operatorSelect === '/') {
         const quot = firstNum / secondNum;                      // same with quotient 
         display.innerText = quot;
+        firstNum = null;                               
+        secondNum = null;
+        operatorSelect = null;
     }
 
 }
