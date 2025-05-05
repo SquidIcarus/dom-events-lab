@@ -38,16 +38,16 @@ function handleNumClick(event) {                       // callback function for 
     // const numberTwo = parseInt(event.target.innerText);
     if (operatorSelect === null) {                      // if no operator was selected
         firstNum = number;                                 // number clicked is stored in var 'firstNum'
-        display.innerText = firstNum;                    
+        display.innerText = firstNum;
         console.log(`first number: ${firstNum}`);           // logs firstNum
-        const isNum = typeof (firstNum);                    // double checking number datatype
-        console.log(isNum);                                 // still a number!
+        // const isNum = typeof (firstNum);                    // double checking number datatype
+        // console.log(isNum);                                 // still a number!
     } else {
         secondNum = number;                                 // if operatorSelect !== null, second number is stored
         display.innerText = secondNum;
         console.log(`second number: ${secondNum}`);
-        const isNum2 = typeof (secondNum);
-        console.log(isNum2);
+        // const isNum2 = typeof (secondNum);
+        // console.log(isNum2);
     }
 }
 
@@ -65,12 +65,21 @@ function handleOperClick(event) {                      // callback function for 
     }
 }
 
-function handleEqClick(event) {                         // callback function for 'equalsButton' eventListener
-//    console.log(event.target.innerText);
-if (operatorSelect === '+') {                            // if operatorSelect is '+'
-    const sum = firstNum + secondNum;                    // store result of firstNum + secondNum in 'sum'
-    console.log(`${firstNum} + ${secondNum} = ${sum}`)   // log check, works
-   display.innerText = sum;                              // display the result of 'sum'
-}
-   
+function handleEqClick() {                         // callback function for 'equalsButton' eventListener
+    //    console.log(event.target.innerText);
+    if (operatorSelect === '+') {                            // if operatorSelect is '+'
+        const sum = firstNum + secondNum;                    // store result of firstNum + secondNum in 'sum'
+        console.log(`${firstNum} + ${secondNum} = ${sum}`)   // log check, works
+        display.innerText = sum;                              // display the result of 'sum'
+    } if (operatorSelect === '-') {                         
+        const diff = firstNum - secondNum;                    // same concept with difference
+        display.innerText = diff;
+    } if (operatorSelect === '*') {
+        const  prod = firstNum * secondNum;                     // same with product
+        display.innerText = prod;
+    } if (operatorSelect === '/') {
+        const quot = firstNum / secondNum;                      // same with quotient 
+        display.innerText = quot;
+    }
+
 }
