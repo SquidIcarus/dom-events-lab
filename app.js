@@ -83,3 +83,5 @@ function handleEqClick() {                         // callback function for 'equ
     }
 
 }
+
+// This is still a work in progress, I just wanted to get my lab turned in!
